@@ -1,0 +1,31 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+<link rel="stylesheet" href="stylesheets/allMeals.css">
+
+<main>
+  <h1><%= title %></h1>
+  <% if (user) { %>
+    <form action="/meals/new" method="GET">
+      <button type="submit" class="btn btn-info">Create A Recipe!</button>
+    </form>
+    <thead>
+      <% meals.forEach(meal => { %>
+        <div>
+          <tr>
+              <td><%= meal.name %></td>
+             <td><a href="/meals/<%= meal._id%>">DETAILS</a></td>
+             <td>
+             <form action="/meals/<%= meal._id%>?_method=DELETE" method="POST">
+               <button class="btn btn-danger">X</button>
+             </form>
+           </td>
+
+         </tr>
+        </div>
+         <% }) %>
+        </thead>
+      <% } %>
+</main>
+
+
+<%- include('../partials/footer') %>

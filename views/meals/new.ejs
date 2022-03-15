@@ -1,0 +1,20 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+
+
+<main>
+  <h1><%= title %> </h1>
+  <% if (user) { %>
+  <form action="/meals" method="POST">
+    <label for="name">
+     Recipe Name:
+    </label>
+  <input 
+    id="name" type="text" name="name" autocomplete="off">
+    <button type="submit" class="btn btn-info">Add</button>
+  </form>
+  <% } %>
+</main>
+
+<%- include('../partials/footer') %>
